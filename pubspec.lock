@@ -9,6 +9,10 @@ packages:
     description: angular2
     source: hosted
     version: "2.0.0-beta.0"
+  angular2_material:
+    description: angular2_material
+    source: hosted
+    version: "2.0.0-beta.0"
   args:
     description: args
     source: hosted
