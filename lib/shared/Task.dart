@@ -5,15 +5,7 @@ class Task {
   List<String> tasknotes;
   DateTime scheduled;
   int id;
-  Set<String> category = new Set<String>.from([
-    "Work",
-    "Travel",
-    "Personal",
-    "Fitness",
-    "Friends",
-    "Family",
-    "Purchases"
-  ]);
+  TaskCategories categories;
 }
 
 class TaskCategory {
