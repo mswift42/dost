@@ -13,6 +13,10 @@ packages:
     description: angular2_material
     source: hosted
     version: "2.0.0-beta.0"
+  angular2_testing:
+    description: angular2_testing
+    source: hosted
+    version: "2.0.0-beta.0"
   args:
     description: args
     source: hosted
@@ -69,6 +73,14 @@ packages:
     description: html
     source: hosted
     version: "0.12.2+1"
+  http_multi_server:
+    description: http_multi_server
+    source: hosted
+    version: "2.0.0"
+  http_parser:
+    description: http_parser
+    source: hosted
+    version: "2.0.0"
   intl:
     description: intl
     source: hosted
@@ -81,6 +93,10 @@ packages:
     description: matcher
     source: hosted
     version: "0.12.0+1"
+  mime:
+    description: mime
+    source: hosted
+    version: "0.9.3"
   observe:
     description: observe
     source: hosted
@@ -109,14 +125,34 @@ packages:
     description: protobuf
     source: hosted
     version: "0.5.0+1"
+  pub_semver:
+    description: pub_semver
+    source: hosted
+    version: "1.2.3"
   quiver:
     description: quiver
     source: hosted
     version: "0.21.4"
+  shelf:
+    description: shelf
+    source: hosted
+    version: "0.6.4+3"
+  shelf_static:
+    description: shelf_static
+    source: hosted
+    version: "0.2.3+2"
+  shelf_web_socket:
+    description: shelf_web_socket
+    source: hosted
+    version: "0.0.1+5"
   smoke:
     description: smoke
     source: hosted
     version: "0.3.5"
+  source_map_stack_trace:
+    description: source_map_stack_trace
+    source: hosted
+    version: "1.0.4"
   source_maps:
     description: source_maps
     source: hosted
@@ -133,6 +169,10 @@ packages:
     description: string_scanner
     source: hosted
     version: "0.1.4+1"
+  test:
+    description: test
+    source: hosted
+    version: "0.12.7"
   utf:
     description: utf
     source: hosted
