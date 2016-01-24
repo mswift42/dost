@@ -4,7 +4,6 @@
 library dost.web;
 
 import 'package:angular2/bootstrap.dart';
-
 import 'package:dost/app_component.dart';
 
 main() {

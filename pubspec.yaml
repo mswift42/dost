@@ -3,9 +3,11 @@ version: 0.0.1
 dependencies:
   angular2: 2.0.0-beta.0
   browser: ^0.10.0
-  angular2_material: 2.0.0-beta.0
   test: ^0.12.6
   angular2_testing: any
+  bootstrap: ^3.3.4
 transformers:
 - angular2:
     entry_points: web/main.dart
+- bootstrap:
+    url: //maxcdn.bootstrapcdn.com/bootstrap/3.3.4
