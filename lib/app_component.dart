@@ -4,6 +4,7 @@
 library dost.app_component;
 
 import 'package:angular2/angular2.dart';
+import 'package:dost/components/tasklist_component/tasklist_component.dart';
 
-@Component(selector: 'my-app', templateUrl: 'app_component.html')
+@Component(selector: 'my-app', templateUrl: 'app_component.html', directives: const [TaskListComponent])
 class AppComponent {}
