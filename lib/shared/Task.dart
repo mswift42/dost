@@ -2,10 +2,10 @@ library Task;
 
 class Task {
   String summary;
-  List<String> tasknotes;
+  List<String> tasknotes = [];
   DateTime scheduled;
   int id;
-  TaskCategories categories;
+  TaskCategories categories = new TaskCategories();
   Task(this.summary);
 }
 
