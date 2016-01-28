@@ -5,25 +5,27 @@ class Task {
   List<String> tasknotes = [];
   DateTime scheduled;
   int id;
-  TaskCategories categories = new TaskCategories();
+  Set<TaskCategory> categories = TaskCategories.categories;
   Task(this.summary);
+
+  void addCategory(TaskCategory cat) {
+    categories.add(cat);
+  }
 }
 
 class TaskCategory {
   String category;
+  TaskCategory(this.category);
 }
 
 class TaskCategories {
-  final Set<TaskCategory> categories = new Set<TaskCategory>.from([
-    "Work",
-    "Travel",
-    "Personal",
-    "Fitness",
-    "Friends",
-    "Family",
-    "Purchases"
+  static final Set<TaskCategory> categories = new Set<TaskCategory>.from([
+    new TaskCategory("Work"),
+    new TaskCategory("Travel"),
+    new TaskCategory("Personal"),
+    new TaskCategory("Fitness"),
+    new TaskCategory("Friends"),
+    new TaskCategory("Family"),
+    new TaskCategory("Purchases")
   ]);
-  void addCategory(TaskCategory cat) {
-    categories.add(cat);
-  }
 }
