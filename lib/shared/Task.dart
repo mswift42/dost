@@ -6,6 +6,7 @@ class Task {
   DateTime scheduled;
   int id;
   TaskCategories categories;
+  Task(this.summary);
 }
 
 class TaskCategory {
