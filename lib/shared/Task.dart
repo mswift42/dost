@@ -11,6 +11,9 @@ class Task {
   void addCategory(TaskCategory cat) {
     categories.add(cat);
   }
+  void addTaskNote(String note) {
+    tasknotes.insert(0, note);
+  }
 }
 
 class TaskCategory {
