@@ -1,4 +1,4 @@
 <div class="newtask">
-  <input class="form-controp" placeholder="Enter new task" type="text"
-         (keyup)="subnmitNewTask($event)"/>
+  <input #tsummary class="form-control" placeholder="Enter new task" type="text"
+         (keyup.enter)="submitNewTask(tsummary.value)"/>
 </div>
