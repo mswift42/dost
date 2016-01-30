@@ -1,4 +1,5 @@
 <div class="newtask">
   <input #tsummary class="form-control" placeholder="Enter new task" type="text"
-         (keyup.enter)="submitNewTask(tsummary.value)"/>
+         (keyup.enter)="submitNewTask(tsummary.value); tsummary.value='' "
+         (blur)="submitNewTask(tsummary.value); tsummary.value='' "/>
 </div>
