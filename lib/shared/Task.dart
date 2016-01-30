@@ -5,7 +5,7 @@ class Task {
   List<String> tasknotes = [];
   DateTime scheduled;
   int id;
-  Set<TaskCategory> categories = TaskCategories.categories;
+  Set<TaskCategory> categories = new Set<TaskCategory>();
   Task(this.summary);
 
   void addCategory(TaskCategory cat) {
