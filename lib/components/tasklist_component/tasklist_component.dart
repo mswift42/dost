@@ -3,11 +3,13 @@ library dost.components.tasklist_component;
 import 'package:angular2/angular2.dart';
 import 'package:dost/shared/Task.dart';
 import 'package:dost/shared/TaskService.dart';
+import 'package:dost/components/task_component/task_component.dart';
 
-@Component(selector: 'tasklist',
+@Component(
+    selector: 'tasklist',
     templateUrl: 'tasklist-component.html',
+    directives: const [NgFor, TaskComponent],
     providers: const [TaskService])
-
 class TaskListComponent {
   List<Task> tasks;
   TaskListComponent(TaskService ts) {

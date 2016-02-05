@@ -5,7 +5,8 @@ import 'package:dost/shared/TaskService.dart';
 import 'package:dost/shared/Task.dart';
 
 @Component(selector: 'newtask',
-    templateUrl: 'newtask-component.html')
+    templateUrl: 'newtask-component.html',
+    providers: const [TaskService])
 
 class NewTaskComponent {
   TaskService ts;
@@ -17,4 +18,5 @@ class NewTaskComponent {
       ts.addTask(new Task(summary));
     }
   }
+
 }
