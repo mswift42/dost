@@ -8,4 +8,9 @@ import 'package:dost/shared/TaskService.dart';
     templateUrl: 'tasklist-component.html',
     providers: const [TaskService])
 
-class TaskListComponent {}
+class TaskListComponent {
+  List<Task> tasks;
+  TaskListComponent(TaskService ts) {
+    tasks = ts.tasklist;
+  }
+}
