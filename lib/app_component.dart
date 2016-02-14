@@ -10,5 +10,5 @@ import 'package:dost/components/tasklist_component/tasklist_component.dart';
 @Component(
     selector: 'my-app',
     templateUrl: 'app_component.html',
-    directives: const [TaskListComponent, NewTaskComponent])
+    directives: const [TaskListComponent])
 class AppComponent {}

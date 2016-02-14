@@ -5,10 +5,17 @@ import 'package:dost/shared/Task.dart';
 
 @Injectable()
 class TaskService {
-  List<Task> tasklist;
+  List<Task> tasklist = [
+  new Task("summary1"),
+  new Task("summary2"),
+  new Task("summary3")];
+
+  List<Task> getTasks() {
+    return this.tasklist;
+  }
 
   void addTask(Task task) {
-    tasklist.insert(0, task);
+    this.tasklist.insert(0, task);
   }
 
   void deleteTask(Task task) {
