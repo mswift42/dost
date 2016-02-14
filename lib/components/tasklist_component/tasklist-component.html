@@ -1,6 +1,11 @@
+<div class="newtask">
+  <input #tsummary class="form-control" placeholder="Enter new task" type="text"
+         (keyup.enter)="submitNewTask(tsummary.value); tsummary.value='' "
+         (blur)="submitNewTask(tsummary.value); tsummary.value='' "/>
+</div>
 <h4>TaskList</h4>
 <ul>
     <li *ngFor="#sum of tasks">
-        <span>{{sum}}</span>
+        <task summary="{{sum.summary}}"></task>
     </li>
 </ul>
