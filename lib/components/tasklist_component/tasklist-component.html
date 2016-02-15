@@ -4,8 +4,8 @@
          (blur)="submitNewTask(tsummary.value); tsummary.value='' "/>
 </div>
 <h4>TaskList</h4>
-<ul>
-    <li *ngFor="#sum of tasks">
-        <task summary="{{sum.summary}}"></task>
-    </li>
-</ul>
+<div class="row">
+  <div *ngFor="#sum of tasks">
+    <task summary="{{sum.summary}}"></task>
+  </div>
+</div>
