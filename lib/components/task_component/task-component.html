@@ -1,5 +1,9 @@
 <div class="singletask">
-  <div class="tasksummary center-block">
-  <h3>{{summary}}</h3>
+  <div *ngIf="!editing" class="tasksummary center-block">
+    <h3>{{summary}}</h3>
+  </div>
+  <div *ngIf="editing" class="tasksummary summaryedit">
+    <input [(ngModel)]="summary" (keyup.enter)="editSummary(summary)" type="text"
+    summary=""/>
   </div>
 </div>
