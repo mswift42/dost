@@ -9,4 +9,9 @@ import 'package:angular2/angular2.dart';
     inputs: const ['summary'])
 class TaskComponent {
   String summary;
+  bool editing = false;
+
+  void toggleEdit() {
+    editing = !editing;
+  }
 }
