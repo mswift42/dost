@@ -8,14 +8,18 @@ import 'package:dost/shared/TaskService.dart' show TaskService;
     selector: 'task',
     templateUrl: 'task-component.html',
     styleUrls: const ['task-component.css'],
-    inputs: const ['summary'])
+    inputs: const ['summary', 'taskid'])
 class TaskComponent {
-  String summary;
+  Task task;
   bool editing = false;
   TaskService _taskService;
   TaskComponent(this._taskService);
 
   void toggleEdit() {
     editing = !editing;
+  }
+
+  void editSummary(String summary) {
+    _taskService.editSummary(task, summary);
   }
 }
