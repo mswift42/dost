@@ -5,7 +5,7 @@
 </div>
 <h4>TaskList</h4>
 <div class="row tasklist">
-  <div *ngFor="#sum of tasks">
-    <task summary="{{sum.summary}}"></task>
+  <div *ngFor="#task of tasks">
+    <task summary="{{task.summary}}" taskid="{{task.id}}"></task>
   </div>
 </div>
