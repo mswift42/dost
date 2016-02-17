@@ -19,8 +19,9 @@ class TaskService {
     this.tasklist.insert(0, task);
   }
 
-  void editSummary(Task task, String newsummary) {
-    tasklist.firstWhere((i) => i.id == task.id).summary = newsummary;
+  void editSummary(String taskid, String newsummary) {
+    int id = int.parse(taskid);
+    tasklist.firstWhere((i) => i.id == id).summary = newsummary;
   }
 
   void deleteTask(Task task) {
