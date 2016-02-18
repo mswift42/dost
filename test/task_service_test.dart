@@ -12,7 +12,7 @@ void main() {
   });
   test('Tasklist tasks can be deleted.', () {
     var ts = new TaskService();
-    var t1 = new Task("some of many");
+    var t1 = new Task("some of many", 1);
     ts.addTask(t1);
     expect(ts.getTasks().length, 4);
     ts.deleteTask(t1);
@@ -21,7 +21,7 @@ void main() {
   test('Tasklist tasks can be edited', () {
     var ts = new TaskService();
     expect(ts.getTasks()[0].summary, "summary1");
-    ts.editSummary(ts.getTasks()[0], "summary111");
+    ts.editSummary("1", "summary111");
     expect(ts.getTasks()[0].summary, "summary111");
   });
 }

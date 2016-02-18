@@ -6,9 +6,9 @@ import 'package:dost/shared/Task.dart';
 @Injectable()
 class TaskService {
   List<Task> tasklist = [
-    new Task("summary1"),
-    new Task("summary2"),
-    new Task("summary3")
+    new Task("summary1", 1),
+    new Task("summary2", 2),
+    new Task("summary3", 3)
   ];
 
   List<Task> getTasks() {
