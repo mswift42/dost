@@ -1,6 +1,7 @@
 .singletask {
-    max-width:14em;
-    height:auto;
+    max-width:24em;
+    min-width:18em;
+    min-height:14em;
     padding:1em;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
     margin-left:1em;

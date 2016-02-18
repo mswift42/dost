@@ -1,5 +1,5 @@
 <div class="singletask">
-  <div *ngIf="!editing" class="tasksummary center-block">
+  <div *ngIf="!editing" class="tasksummary center-block" (dblclick)="toggleEdit()">
     <h3>{{summary}}</h3>
   </div>
   <div *ngIf="editing" class="tasksummary summaryedit">
