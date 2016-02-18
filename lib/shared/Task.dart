@@ -6,11 +6,12 @@ class Task {
   DateTime scheduled;
   int id;
   Set<TaskCategory> categories = new Set<TaskCategory>();
-  Task(this.summary);
+  Task(this.summary, this.id);
 
   void addCategory(TaskCategory cat) {
     categories.add(cat);
   }
+
   void addTaskNote(String note) {
     tasknotes.insert(0, note);
   }
