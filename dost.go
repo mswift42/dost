@@ -91,6 +91,7 @@ func getAllTasks(w http.ResponseWriter, r *http.Request) {
 }
 
 func postTask(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Access-Control-Allow-Origin", "*")
 	c := appengine.NewContext(r)
 	task := Task{}
 	if err := json.NewDecoder(r.Body).Decode(&task); err != nil {
@@ -112,6 +113,7 @@ func postTask(w http.ResponseWriter, r *http.Request) {
 }
 
 func deleteTask(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Access-Control-Allow-Origin", "*")
 	c := appengine.NewContext(r)
 	id := mux.Vars(r)["task"]
 	intid, err := strconv.ParseInt(id, 10, 64)
