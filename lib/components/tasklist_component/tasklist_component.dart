@@ -11,18 +11,18 @@ import 'package:dost/components/task_component/task_component.dart';
     styleUrls: const ['tasklist-component.css'],
     directives: const [NgFor, TaskComponent],
     providers: const [TaskService])
-  class TaskListComponent implements OnInit {
-    List<Task> tasks;
-    final TaskService _taskService;
-    TaskListComponent(this._taskService);
+class TaskListComponent implements OnInit {
+  List<Task> tasks;
+  final TaskService _taskService;
+  TaskListComponent(this._taskService);
 
-    ngOnInit() {
-      tasks = _taskService.getTasks();
-    }
+  ngOnInit() {
+    tasks = _taskService.getTasks();
+  }
 
-    void submitNewTask(String summary) {
-      if (summary.length > 0) {
-        tasks.insert(0, new Task(summary));
-      }
+  void submitNewTask(String summary) {
+    if (summary.length > 0) {
+     _taskService.addTask(new Task(summary, 1234));
     }
   }
+}
