@@ -12,5 +12,7 @@
         margin-right:2em;
     }
 }
-
-
+.deleteicon {
+  position: relative;
+  top:70px;
+}
