@@ -15,7 +15,7 @@ void main() {
     var t1 = new Task("some of many", 1);
     ts.addTask(t1);
     expect(ts.getTasks().length, 4);
-    ts.deleteTask(t1);
+    ts.deleteTask(t1.id.toString());
     expect(ts.getTasks().length, 3);
   });
   test('Tasklist tasks can be edited', () {
