@@ -16,7 +16,7 @@ class TaskService {
   }
 
   Task getTask(int id) {
-    tasklist.firstWhere((i) => i.id == id);
+    return tasklist.firstWhere((i) => i.id == id);
   }
 
   void addTask(Task task) {
