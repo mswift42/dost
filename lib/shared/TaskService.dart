@@ -1,6 +1,6 @@
 library dost.shared.TaskService;
 
-import 'package:angular2/angular2.dart' show Injectable;
+import 'package:angular2/angular2.dart';
 import 'package:dost/shared/Task.dart';
 
 @Injectable()
@@ -15,6 +15,10 @@ class TaskService {
     return this.tasklist;
   }
 
+  Task getTask(int id) {
+    tasklist.firstWhere((i) => i.id == id);
+  }
+
   void addTask(Task task) {
     this.tasklist.insert(0, task);
   }
@@ -24,7 +28,8 @@ class TaskService {
     tasklist.firstWhere((i) => i.id == id).summary = newsummary;
   }
 
-  void deleteTask(Task task) {
+  void deleteTask(String taskid) {
+    Task task = tasklist.firstWhere((i) => i.id == id);
     tasklist.remove(task);
   }
 }
