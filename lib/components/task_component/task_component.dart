@@ -1,7 +1,6 @@
 library dost.components.task_component;
 
 import 'package:angular2/angular2.dart';
-import 'package:dost/shared/Task.dart' show Task;
 import 'package:dost/shared/TaskService.dart' show TaskService;
 
 @Component(
@@ -23,5 +22,9 @@ class TaskComponent {
   void editSummary(String summary) {
     _taskService.editSummary(taskid, summary);
     toggleEdit();
+  }
+
+  void deleteTask() {
+    _taskService.deleteTask(taskid);
   }
 }
