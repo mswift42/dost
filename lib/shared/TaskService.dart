@@ -29,7 +29,7 @@ class TaskService {
   }
 
   void deleteTask(String taskid) {
-    Task task = tasklist.firstWhere((i) => i.id == id);
+    Task task = getTask(int.parse(taskid));
     tasklist.remove(task);
   }
 }
