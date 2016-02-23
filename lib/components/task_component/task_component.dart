@@ -10,10 +10,11 @@ import 'package:dost/components/tasknote_component/tasknote_component.dart'
     templateUrl: 'task-component.html',
     styleUrls: const ['task-component.css'],
     directives: const [NgFor, TaskNoteComponent],
-    inputs: const ['summary', 'taskid'])
+    inputs: const ['summary', 'taskid', 'tasknotes'])
 class TaskComponent {
   String summary;
   String taskid;
+  List<String> tasknotes;
   bool editing = false;
   TaskService _taskService;
   TaskComponent(this._taskService);
