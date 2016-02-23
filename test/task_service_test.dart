@@ -24,4 +24,11 @@ void main() {
     ts.editSummary("1", "summary111");
     expect(ts.getTasks()[0].summary, "summary111");
   });
+  test('Task notes can be added', () {
+    var ts = new TaskService();
+    var t1 = ts.getTasks()[0];
+    expect(t1.tasknotes.length, 0);
+    ts.addTaskNote("1", "note1");
+    expect(ts.getTasks()[0].tasknotes.length, 1);
+  });
 }
