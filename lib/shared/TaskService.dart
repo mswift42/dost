@@ -32,4 +32,9 @@ class TaskService {
     Task task = getTask(int.parse(taskid));
     tasklist.remove(task);
   }
+
+  void addTaskNote(String taskid, String note) {
+    Task task = getTask(int.parse(taskid));
+    task.addTaskNote(note);
+  }
 }
