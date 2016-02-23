@@ -6,6 +6,9 @@
     <input [(ngModel)]="summary" (keyup.enter)="editSummary(summary)" type="text"
     summary=""/>
   </div>
+  <div *ngFor="#note of notes">
+    <task-note note="{{note}}"></task-note>
+  </div>
   <div class="deleteicon">
     <i class="fa fa-trash" (click)="deleteTask()"></i>
   </div>
