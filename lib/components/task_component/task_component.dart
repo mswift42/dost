@@ -16,6 +16,7 @@ class TaskComponent {
   String taskid;
   List<String> tasknotes;
   bool editing = false;
+  bool addingnote = false;
   TaskService _taskService;
   TaskComponent(this._taskService);
 
@@ -30,5 +31,9 @@ class TaskComponent {
 
   void deleteTask() {
     _taskService.deleteTask(taskid);
+  }
+
+  void showNoteInput() {
+    addingnote = !addingnote;
   }
 }
