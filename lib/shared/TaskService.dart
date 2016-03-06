@@ -37,4 +37,10 @@ class TaskService {
     Task task = getTask(int.parse(taskid));
     task.addTaskNote(note);
   }
+
+  void editNote(String taskid, String index, String newnote) {
+    int id = int.parse(taskid);
+    int noteidx = int.parse(index);
+    tasklist.firstWhere((i) => i.id == id).tasknotes[noteidx] = newnote;
+  }
 }
