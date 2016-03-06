@@ -5,9 +5,8 @@ import 'package:dost/shared/TaskService.dart' show TaskService;
 
 @Component(
     selector: 'new-note',
-templateUrl: 'newnote-component.html',
-inputs: const ['taskid']
-)
+    templateUrl: 'newnote-component.html',
+    inputs: const ['taskid'])
 class NewNoteComponent {
   String taskid;
   bool addingNote;
@@ -17,5 +16,10 @@ class NewNoteComponent {
 
   void toggleAddingNote() {
     addingNote = !addingNote;
+  }
+
+  void addNote(event) {
+    _taskService.addTaskNote(taskid, event.target.value);
+    toggleAddingNote();
   }
 }
