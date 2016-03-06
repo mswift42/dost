@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="addnote">
+    <i class="fa fa-plus" (click)="toggleAddingNote()"></i>
+</div>
+<div *ngIf="addingNote" class="newnote">
+    <input type="text" (keyup.enter)="addNote($event)" />
+</div>
