@@ -1,1 +1,7 @@
-<span>{{note}}</span>
+<div *ngIf="!editing" class="tasknote" (dblclick)="toggleEditing()">
+<span>{{tasknote}}</span>
+</div>
+<div *ngIf="editing" class="tasknote">
+    <input [(ngModel)]="tasknote" type="text"
+           (keyup.enter)="editNote(tasknote)" />
+</div>
