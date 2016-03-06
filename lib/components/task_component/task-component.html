@@ -6,13 +6,8 @@
     <input [(ngModel)]="summary" (keyup.enter)="editSummary(summary)" type="text"
     summary=""/>
   </div>
-  <div *ngIf="tasknotes.length != 0">
-    <div *ngFor="#note of tasknotes">
-      <task-note tasknote="{{note}}"></task-note>
-    </div>
-  </div>
   <div class="addnote">
-    <i class="fa fa-plus" (click)="showNoteInput()"></i>
+    <i class="fa fa-plus" (click)="toggleAddingNote()"></i>
   </div>
   <div *ngIf="addingnote" class="newnote">
     <input type="text" (keyup.enter)="addNote($event)" />

@@ -10,11 +10,10 @@ import 'package:dost/components/tasknote_component/tasknote_component.dart'
     templateUrl: 'task-component.html',
     styleUrls: const ['task-component.css'],
     directives: const [NgFor, TaskNoteComponent],
-    inputs: const ['summary', 'taskid', 'tasknotes'])
+    inputs: const ['summary', 'taskid',])
 class TaskComponent {
   String summary;
   String taskid;
-  List<String> tasknotes;
   bool editing = false;
   bool addingnote = false;
   TaskService _taskService;
@@ -33,7 +32,12 @@ class TaskComponent {
     _taskService.deleteTask(taskid);
   }
 
-  void showNoteInput() {
+  void toggleAddingNote() {
     addingnote = !addingnote;
+  }
+
+  void addNote(event) {
+    _taskService.addTaskNote(taskid, event.target.value);
+    toggleAddingNote();
   }
 }
