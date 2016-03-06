@@ -38,9 +38,16 @@ class TaskService {
     task.addTaskNote(note);
   }
 
-  void editNote(String taskid, String index, String newnote) {
+  void deleteNote(int taskid, int index) {
+    tasklist.firstWhere((i) => i.id == taskid).tasknotes.removeAt(index);
+  }
+
+  void editNoteatom themecreator(String taskid, String index, String newnote) {
     int id = int.parse(taskid);
     int noteidx = int.parse(index);
+    if (newnote.trim() == "") {
+      deleteNote(id, noteidx);
+    }
     tasklist.firstWhere((i) => i.id == id).tasknotes[noteidx] = newnote;
   }
 }
