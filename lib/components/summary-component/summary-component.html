@@ -1,0 +1,10 @@
+<div class="tasksummary center-block" *ngIf="!editing"
+     (dblclick)="toggleEditing()">
+    <h4>{{summary}}</h4>
+</div>
+<div *ngIf="editing" class="tasksummary summaryedit">
+    <input [(ngModel)]="summary" (keyup.enter)="editSummary(summary)" type="text"
+           summary="" />
+</div>
+
+
