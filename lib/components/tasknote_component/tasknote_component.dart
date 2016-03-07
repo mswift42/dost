@@ -23,4 +23,7 @@ class TaskNoteComponent {
   void editNote(String note) {
     _taskService.editNote(taskid, index, tasknote);
   }
+  void deleteNote() {
+    _taskService.deleteNote(taskid, index);
+  }
 }
