@@ -4,6 +4,7 @@
     flex-wrap:wrap;
 }
 .singletask {
+    position:relative;
     max-width:24em;
     min-width:18em;
     min-height:14em;
@@ -13,11 +14,13 @@
 }
 @media screen and (min-width:768px) {
     .singletask {
+        position:relative;
         margin-left:2em;
         margin-right:2em;
     }
 }
 .deleteicon {
-    position: relative;
-    top:70px;
+    position: absolute;
+    bottom:4px;
+    right:4px;
 }
