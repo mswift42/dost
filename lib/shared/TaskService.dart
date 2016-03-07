@@ -28,8 +28,8 @@ class TaskService {
     tasklist.firstWhere((i) => i.id == id).summary = newsummary;
   }
 
-  void deleteTask(String taskid) {
-    Task task = getTask(int.parse(taskid));
+  void deleteTask(int taskid) {
+    Task task = getTask(taskid);
     tasklist.remove(task);
   }
 

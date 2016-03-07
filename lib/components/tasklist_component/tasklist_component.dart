@@ -38,4 +38,7 @@ class TaskListComponent implements OnInit {
       _taskService.addTask(new Task(summary, 1234));
     }
   }
+  void deleteTask(int id) {
+    _taskService.deleteTask(id);
+  }
 }
