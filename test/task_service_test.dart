@@ -39,4 +39,14 @@ void main() {
     ts.deleteNote("1", "0");
     expect(ts.getTasks()[0].tasknotes.length,0);
   });
+  test('Task notes can be edited', () {
+    var ts = new TaskService();
+    var t1 = ts.getTasks()[1];
+    ts.addTaskNote("2", "note1");
+    ts.addTaskNote("2", "note2");
+    expect(ts.getTasks()[1].tasknotes.length,2);
+    ts.editNote("2","0", "new note");
+    expect(ts.getTasks()[1].tasknotes[0], "new note");
+    expect(ts.getTasks()[1].tasknotes[1], "note1");
+  });
 }
