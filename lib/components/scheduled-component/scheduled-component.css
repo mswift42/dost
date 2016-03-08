@@ -1,0 +1,10 @@
+.scheduled {
+    position:absolute;
+    bottom:2em;
+}
+.scheduledicon > i {
+    color:rgba(0,0,0,0.5);
+}
+.scheduledicon > i:hover {
+    color:rgba(0,0,0,1);
+}
