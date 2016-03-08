@@ -8,6 +8,8 @@ import 'package:dost/components/summary-component/summary_component.dart'
     show SummaryComponent;
 import 'package:dost/components/newnote-component/newnote_component.dart'
     show NewNoteComponent;
+import 'package:dost/components/scheduled-component/scheduled_component.dart'
+    show ScheduledComponent;
 
 @Component(
     selector: 'tasklist',
@@ -19,7 +21,8 @@ import 'package:dost/components/newnote-component/newnote_component.dart'
       NgFor,
       TaskNoteComponent,
       SummaryComponent,
-      NewNoteComponent
+      NewNoteComponent,
+      ScheduledComponent
     ],
     providers: const [
       TaskService
