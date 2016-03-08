@@ -19,4 +19,9 @@ class SummaryComponent {
   void toggleEditing() {
     editing = !editing;
   }
+
+  void editSummary(String summary) {
+    _taskService.editSummary(taskid, summary);
+    toggleEditing();
+  }
 }
