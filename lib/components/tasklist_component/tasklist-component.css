@@ -24,3 +24,9 @@
     bottom:4px;
     right:4px;
 }
+.deleteicon > i {
+    color:rgba(0,0,0,0.3);
+}
+.deleteicon > i:hover {
+  color:rgba(0,0,0,1);
+}
