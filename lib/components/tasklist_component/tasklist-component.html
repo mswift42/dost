@@ -7,7 +7,8 @@
 <div class="row tasklist">
   <div *ngFor="#task of tasks">
     <div class="singletask">
-      <task-summary summary="{{task.summary}}"></task-summary>
+      <task-summary summary="{{task.summary}}"
+      taskid="{{task.id}}"></task-summary>
       <!--<task summary="{{task.summary}}" taskid="{{task.id}}">-->
       <!--</task>-->
       <div *ngIf="task.tasknotes.length > 0">
