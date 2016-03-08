@@ -3,10 +3,11 @@ library dost.components.tasklist_component;
 import 'package:angular2/angular2.dart';
 import 'package:dost/shared/Task.dart';
 import 'package:dost/shared/TaskService.dart';
-import 'package:dost/components/task_component/task_component.dart';
 import 'package:dost/components/tasknote_component/tasknote_component.dart';
-import 'package:dost/components/summary-component/summary_component.dart' show SummaryComponent;
-import 'package:dost/components/newnote-component/newnote_component.dart' show NewNoteComponent;
+import 'package:dost/components/summary-component/summary_component.dart'
+    show SummaryComponent;
+import 'package:dost/components/newnote-component/newnote_component.dart'
+    show NewNoteComponent;
 
 @Component(
     selector: 'tasklist',
@@ -16,7 +17,6 @@ import 'package:dost/components/newnote-component/newnote_component.dart' show N
     ],
     directives: const [
       NgFor,
-      TaskComponent,
       TaskNoteComponent,
       SummaryComponent,
       NewNoteComponent
@@ -38,6 +38,7 @@ class TaskListComponent implements OnInit {
       _taskService.addTask(new Task(summary, 1234));
     }
   }
+
   void deleteTask(int id) {
     _taskService.deleteTask(id);
   }
