@@ -6,6 +6,7 @@ import 'package:dost/shared/TaskService.dart' show TaskService;
 @Component(
     selector: 'task-note',
     templateUrl: 'tasknote-component.html',
+    styleUrls: const ['tasknote-component.css'],
     inputs: const ['tasknote', 'taskid', 'index'])
 class TaskNoteComponent {
   String tasknote;
