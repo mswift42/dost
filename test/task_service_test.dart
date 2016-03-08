@@ -18,7 +18,7 @@ void main() {
     ts.deleteTask(t1.id);
     expect(ts.getTasks().length, 3);
   });
-  test('Tasklist tasks can be edited', () {
+  test('task summaries can be edited', () {
     var ts = new TaskService();
     expect(ts.getTasks()[0].summary, "summary1");
     ts.editSummary("1", "summary111");

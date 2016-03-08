@@ -1,6 +1,8 @@
 <div *ngIf="!editing" class="tasknote" (dblclick)="toggleEditing()">
-    <span>{{tasknote}}</span>
-    <span class="deletenote"><i class="fa fa-remove"></i></span>
+        <span>{{tasknote}}</span>
+    <span class="deletenote">
+        <i class="fa fa-remove delnoteicon pull-right"
+           (click)="deleteNote()"></i></span>
 </div>
 <div *ngIf="editing" class="tasknote">
     <input [(ngModel)]="tasknote" type="text"

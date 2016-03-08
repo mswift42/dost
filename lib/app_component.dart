@@ -4,7 +4,6 @@
 library dost.app_component;
 
 import 'package:angular2/angular2.dart';
-import 'package:dost/components/newtask_component/newtask_component.dart';
 import 'package:dost/components/tasklist_component/tasklist_component.dart';
 
 @Component(
