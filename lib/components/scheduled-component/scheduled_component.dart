@@ -14,6 +14,10 @@ class ScheduledComponent {
 
   ScheduledComponent(this._taskService);
 
+  void toggleEditing() {
+    editing = !editing;
+  }
+
   void editScheduled(String scheduled) {
     List<int> sched = scheduled.split("/").map((i) => int.parse(i));
     _taskService.editScheduled(
