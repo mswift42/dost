@@ -49,4 +49,9 @@ class TaskService {
     int noteidx = int.parse(index);
     tasklist.firstWhere((i) => i.id == id).tasknotes[noteidx] = newnote;
   }
+
+  void editScheduled(String taskid, DateTime scheduled) {
+    int id = int.parse(taskid);
+    tasklist.firstWhere((i) => i.id == id).scheduled = scheduled;
+  }
 }
