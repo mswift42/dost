@@ -1,5 +1,10 @@
-<div class="scheduled">
+<div *ngIf="scheduled == null" class="scheduled">
   <div class="scheduledicon">
     <i class="fa fa-clock-o"></i>
+  </div>
+</div>
+<div *ngIf="scheduled != null" class="scheduled">
+  <div class="scheduleddate">
+    <span>{{scheduled}}</span>
   </div>
 </div>
