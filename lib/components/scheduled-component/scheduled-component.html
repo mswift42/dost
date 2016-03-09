@@ -3,8 +3,14 @@
     <i class="fa fa-clock-o"></i>
   </div>
 </div>
-<div *ngIf="scheduled != null" class="scheduled">
+<div *ngIf="scheduled != null && !editing" class="scheduled">
   <div class="scheduleddate">
     <span>{{scheduled}}</span>
+  </div>
+</div>
+<div *ngIf="editing" class="scheduled editdate">
+  <div class="dateinput">
+    <input type="date" [(ngModel)]="scheduled"
+           (keyup.enter)="editScheduled($event)" />
   </div>
 </div>
