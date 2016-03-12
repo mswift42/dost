@@ -10,8 +10,8 @@
 </div>
 <div *ngIf="editing" class="scheduled editdate">
   <div class="dateinput">
-    <input type="date" [(ngModel)]="scheduled"
-           (keyup.enter)="editScheduled($event)" />
+    <input type="text" [(ngModel)]="scheduled"
+           (change)="editScheduled($event)" />
   </div>
 </div>
 <div *ngIf="dateinvalid" class="alert alert-warning">
