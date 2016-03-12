@@ -7,9 +7,10 @@ import 'package:dost/shared/TaskService.dart' show TaskService;
     styleUrls: const ['scheduled-component.css'],
     inputs: const ['scheduled', 'taskid'])
 class ScheduledComponent {
-  DateTime scheduled;
+  String scheduled;
   String taskid;
-  bool editing;
+  bool editing = false;
+  bool dateinvalid = false;
   final TaskService _taskService;
 
   ScheduledComponent(this._taskService);
@@ -18,9 +19,23 @@ class ScheduledComponent {
     editing = !editing;
   }
 
-  void editScheduled(String scheduled) {
-    List<int> sched = scheduled.split("/").map((i) => int.parse(i));
-    _taskService.editScheduled(
-        taskid, new DateTime(sched[2], sched[1], sched[0]));
+  bool validDateString(String date) {
+    try {
+      DateTime.parse(date);
+    } catch (exception, stacktrace) {
+      return false;
+    }
+    return true;
+  }
+
+  void editScheduled(event) {
+    String dateval = event.target.value;
+    if (!validDateString(dateval)) {
+      dateinvalid = true;
+    } else {
+      _taskService.editScheduled(taskid, DateTime.parse(dateval));
+      dateinvalid = false;
+      editing = !editing;
+    }
   }
 }
