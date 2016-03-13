@@ -2,6 +2,7 @@ library dost.shared.TaskService;
 
 import 'package:angular2/angular2.dart';
 import 'package:dost/shared/Task.dart';
+import 'package:intl/intl.dart' show DateFormat;
 
 @Injectable()
 class TaskService {
@@ -48,6 +49,11 @@ class TaskService {
     int id = int.parse(taskid);
     int noteidx = int.parse(index);
     tasklist.firstWhere((i) => i.id == id).tasknotes[noteidx] = newnote;
+  }
+
+  String formatDate(DateTime date) {
+    DateFormat format = new DateFormat('dd/MM/yyyy');
+    return format.format(date);
   }
 
   void editScheduled(String taskid, DateTime scheduled) {
