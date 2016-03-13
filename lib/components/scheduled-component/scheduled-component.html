@@ -3,9 +3,9 @@
     <i class="fa fa-clock-o"></i>
   </div>
 </div>
-<div *ngIf="scheduled != null && !editing" class="scheduled">
+<div *ngIf="scheduled != '' && !editing" class="scheduled">
   <div class="scheduleddate">
-    <span>{{scheduled}}</span>
+    <span>{{scheduled | date:'mediumDate'}}</span>
   </div>
 </div>
 <div *ngIf="editing" class="scheduled editdate">

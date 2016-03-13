@@ -7,7 +7,7 @@ import 'package:dost/shared/TaskService.dart' show TaskService;
     styleUrls: const ['scheduled-component.css'],
     inputs: const ['scheduled', 'taskid'])
 class ScheduledComponent {
-  String scheduled;
+  DateTime scheduled;
   String taskid;
   bool editing = false;
   bool dateinvalid = false;
