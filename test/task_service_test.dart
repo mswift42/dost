@@ -47,4 +47,12 @@ void main() {
     expect(ts.getTasks()[1].tasknotes[0], "new note");
     expect(ts.getTasks()[1].tasknotes[1], "note1");
   });
+  test('formatDate formats dates in format dd/MM/yyyy', () {
+    var ts = new TaskService();
+    var d1 = DateTime.parse("2016-03-01");
+    var df1 = ts.formatDate(d1);
+    expect(df1, "01/03/2016");
+    var d2 = DateTime.parse("2015-12-24");
+    expect(ts.formatDate(d2), "24/12/2015");
+  });
 }
