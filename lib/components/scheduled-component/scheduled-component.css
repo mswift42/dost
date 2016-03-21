@@ -8,3 +8,7 @@
 .scheduledicon > i:hover {
     color:rgba(0,0,0,1);
 }
+
+.scheduleddate {
+    margin-left:2em;
+}
