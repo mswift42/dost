@@ -4,13 +4,13 @@
   </div>
 </div>
 <div *ngIf="scheduled != '' && !editing" class="scheduled">
-  <div class="scheduleddate">
-    <span>{{scheduled | date:'mediumDate'}}</span>
+  <div class="scheduleddate" (dblclick)="toggleEditing()">
+    <span>{{parseDate(scheduled) | date}}</span>
   </div>
 </div>
 <div *ngIf="editing" class="scheduled editdate">
   <div class="dateinput">
-    <input type="text" [(ngModel)]="scheduled"
+    <input type="date" [(ngModel)]="scheduled"
            (change)="editScheduled($event)" />
   </div>
 </div>
