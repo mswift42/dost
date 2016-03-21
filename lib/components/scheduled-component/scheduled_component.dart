@@ -1,28 +1,32 @@
-import 'package:angular2/angular2.dart' show Component;
+import 'package:angular2/angular2.dart' show Component, OnInit, Input;
 import 'package:dost/shared/TaskService.dart' show TaskService;
+import 'package:intl/intl.dart' show DateFormat;
 
 @Component(
     selector: 'scheduled',
     templateUrl: 'scheduled-component.html',
-    styleUrls: const ['scheduled-component.css'],
-    inputs: const ['scheduled', 'taskid'])
+    styleUrls: const ['scheduled-component.css'])
 class ScheduledComponent {
-  DateTime scheduled;
-  String taskid;
+  @Input() DateTime scheduled;
+  @Input() String taskid;
   bool editing = false;
   bool dateinvalid = false;
   final TaskService _taskService;
 
-  ScheduledComponent(this._taskService);
+  ScheduledComponent(this._taskService) {
+  }
 
   void toggleEditing() {
     editing = !editing;
+  }
+  DateTime parseDate(String datestring) {
+    return DateTime.parse(datestring);
   }
 
   bool validDateString(String date) {
     try {
       DateTime.parse(date);
-    } catch (exception, stacktrace) {
+    } catch (exception, _) {
       return false;
     }
     return true;
@@ -33,7 +37,8 @@ class ScheduledComponent {
     if (!validDateString(dateval)) {
       dateinvalid = true;
     } else {
-      _taskService.editScheduled(taskid, DateTime.parse(dateval));
+      _taskService.editScheduled(
+          taskid, DateTime.parse(dateval).toIso8601String());
       dateinvalid = false;
       toggleEditing();
     }
