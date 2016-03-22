@@ -1,7 +1,7 @@
 library dost.shared.TaskService;
 
 import 'package:angular2/angular2.dart';
-import 'package:dost/shared/Task.dart';
+import 'package:dost/shared/Task.dart' show Task;
 import 'package:intl/intl.dart' show DateFormat;
 
 @Injectable()
