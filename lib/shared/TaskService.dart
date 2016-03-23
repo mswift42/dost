@@ -3,6 +3,7 @@ library dost.shared.TaskService;
 import 'package:angular2/angular2.dart';
 import 'package:dost/shared/Task.dart' show Task;
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:firebase/firebase.dart';
 
 @Injectable()
 class TaskService {
@@ -11,8 +12,11 @@ class TaskService {
     new Task("summary2", 2),
     new Task("summary3", 3)
   ];
+  Firebase fbRef = new Firebase("https://vivid-torch-1460.firebaseio.com/");
+
 
   List<Task> getTasks() {
+    fbRef.orderByChild("scheduled");
     return this.tasklist;
   }
 
@@ -22,6 +26,10 @@ class TaskService {
 
   void addTask(Task task) {
     this.tasklist.insert(0, task);
+    fbRef.push(value: {
+      "summary" : task.summary,
+      "id" :task.id
+    });
   }
 
   void editSummary(String taskid, String newsummary) {
