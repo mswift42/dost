@@ -12,11 +12,11 @@ class TaskService {
     new Task("summary2", 2),
     new Task("summary3", 3)
   ];
-  Firebase fbRef = new Firebase("https://vivid-torch-1460.firebaseio.com/");
-
+  Firebase fbRef =
+      new Firebase("https://vivid-torch-1460.firebaseio.com/").child("tasks");
 
   List<Task> getTasks() {
-    fbRef.orderByChild("scheduled");
+    fbRef.once("value").then((snapshot) => print(snapshot.val()));
     return this.tasklist;
   }
 
@@ -26,10 +26,7 @@ class TaskService {
 
   void addTask(Task task) {
     this.tasklist.insert(0, task);
-    fbRef.push(value: {
-      "summary" : task.summary,
-      "id" :task.id
-    });
+    fbRef.push(value: {"summary": task.summary, "id": task.id});
   }
 
   void editSummary(String taskid, String newsummary) {
