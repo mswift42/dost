@@ -7,20 +7,16 @@ import 'package:firebase/firebase.dart';
 
 @Injectable()
 class TaskService {
-  List<Task> tasklist = [
-    new Task("summary1", "1"),
-    new Task("summary2", "2"),
-    new Task("summary3", "3")
-  ];
+  List<Task> tasklist = [];
   Firebase fbRef =
       new Firebase("https://vivid-torch-1460.firebaseio.com/").child("tasks");
 
   List<Task> getTasks() {
-    fbRef.on("value").then((snapshot) => print(snapshot.val()));
+    fbRef.once("value").then((snapshot) => print(snapshot.val()));
     return this.tasklist;
   }
 
-  Task getTask(int id) {
+  Task getTask(String id) {
     return tasklist.firstWhere((i) => i.id == id);
   }
 
@@ -29,28 +25,27 @@ class TaskService {
     newtaskref.set({
       "summary": summary
     });
+    print(newtaskref.key);
     tasklist.insert(0, new Task(summary, newtaskref.key));
   }
 
   void editSummary(String taskid, String newsummary) {
-    int id = int.parse(taskid);
-    tasklist.firstWhere((i) => i.id == id).summary = newsummary;
+    tasklist.firstWhere((i) => i.id == taskid).summary = newsummary;
   }
 
-  void deleteTask(int taskid) {
+  void deleteTask(String taskid) {
     Task task = getTask(taskid);
     tasklist.remove(task);
   }
 
   void addTaskNote(String taskid, String note) {
-    Task task = getTask(int.parse(taskid));
+    Task task = getTask(taskid);
     task.addTaskNote(note);
   }
 
   void deleteNote(String taskid, String index) {
-    int id = int.parse(taskid);
     int idx = int.parse(index);
-    tasklist.firstWhere((i) => i.id == id).tasknotes.removeAt(idx);
+    tasklist.firstWhere((i) => i.id == taskid).tasknotes.removeAt(idx);
   }
 
   void editNote(String taskid, String index, String newnote) {
@@ -65,7 +60,6 @@ class TaskService {
   }
 
   void editScheduled(String taskid, DateTime scheduled) {
-    int id = int.parse(taskid);
-    tasklist.firstWhere((i) => i.id == id).scheduled = scheduled;
+    tasklist.firstWhere((i) => i.id == taskid).scheduled = scheduled;
   }
 }
