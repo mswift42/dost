@@ -38,7 +38,7 @@ class TaskListComponent implements OnInit {
 
   void submitNewTask(String summary) {
     if (summary.length > 0) {
-      _taskService.addTask(new Task(summary, 1234));
+      _taskService.addTask(summary);
     }
   }
 
