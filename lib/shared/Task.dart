@@ -4,7 +4,7 @@ class Task {
   String summary;
   List<String> tasknotes = [];
   DateTime scheduled;
-  int id;
+  String id;
   Set<TaskCategory> categories = new Set<TaskCategory>();
   Task(this.summary, this.id);
 

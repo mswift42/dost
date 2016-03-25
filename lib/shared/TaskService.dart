@@ -8,15 +8,15 @@ import 'package:firebase/firebase.dart';
 @Injectable()
 class TaskService {
   List<Task> tasklist = [
-    new Task("summary1", 1),
-    new Task("summary2", 2),
-    new Task("summary3", 3)
+    new Task("summary1", "1"),
+    new Task("summary2", "2"),
+    new Task("summary3", "3")
   ];
   Firebase fbRef =
       new Firebase("https://vivid-torch-1460.firebaseio.com/").child("tasks");
 
   List<Task> getTasks() {
-    fbRef.once("value").then((snapshot) => print(snapshot.val()));
+    fbRef.on("value").then((snapshot) => print(snapshot.val()));
     return this.tasklist;
   }
 
@@ -24,9 +24,12 @@ class TaskService {
     return tasklist.firstWhere((i) => i.id == id);
   }
 
-  void addTask(Task task) {
-    this.tasklist.insert(0, task);
-    fbRef.push(value: {"summary": task.summary, "id": task.id});
+  void addTask(String summary) {
+    var newtaskref = fbRef.push();
+    newtaskref.set({
+      "summary": summary
+    });
+    tasklist.insert(0, new Task(summary, newtaskref.key));
   }
 
   void editSummary(String taskid, String newsummary) {
