@@ -28,6 +28,7 @@ class TaskService {
 
   void editSummary(String taskid, String newsummary) {
     tasklist.firstWhere((i) => i.id == taskid).summary = newsummary;
+    fbRef.child(taskid).set({"summary" : newsummary});
   }
 
   void deleteTask(String taskid) {
