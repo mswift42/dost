@@ -57,9 +57,9 @@ class TaskService {
   }
 
   void editNote(String taskid, String index, String newnote) {
-    int id = int.parse(taskid);
     int noteidx = int.parse(index);
-    tasklist.firstWhere((i) => i.id == id).tasknotes[noteidx] = newnote;
+    tasklist.firstWhere((i) => i.id == taskid).tasknotes[noteidx] = newnote;
+    fbRef.child(taskid).update({"tasknotes":getTask(taskid).tasknotes});
   }
 
   String formatDate(DateTime date) {
