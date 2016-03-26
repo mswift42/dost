@@ -1,7 +1,7 @@
 name: dost
 version: 0.0.1
 dependencies:
-  angular2: 2.0.0-beta.11
+  angular2: 2.0.0-beta.12
   browser: ^0.10.0
   test: ^0.12.6
   angular2_testing: any
