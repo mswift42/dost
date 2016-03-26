@@ -3,8 +3,8 @@
 
 library dost.web;
 
-import 'package:angular2/bootstrap.dart';
 import 'package:dost/app_component.dart';
+import 'package:angular2/platform/browser.dart' show bootstrap;
 
 main() {
   bootstrap(AppComponent);
