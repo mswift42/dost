@@ -70,5 +70,6 @@ class TaskService {
 
   void editScheduled(String taskid, DateTime scheduled) {
     tasklist.firstWhere((i) => i.id == taskid).scheduled = scheduled;
+    fbRef.child(taskid).update({"scheduled": getTask(taskid).scheduled});
   }
 }
