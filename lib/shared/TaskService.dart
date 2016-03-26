@@ -36,7 +36,7 @@ class TaskService {
 
   void editSummary(String taskid, String newsummary) {
     tasklist.firstWhere((i) => i.id == taskid).summary = newsummary;
-    fbRef.child(taskid).set({"summary": newsummary});
+    fbRef.child(taskid).update({"summary": newsummary});
   }
 
   void deleteTask(String taskid) {
@@ -48,7 +48,7 @@ class TaskService {
   void addTaskNote(String taskid, String note) {
     Task task = getTask(taskid);
     task.addTaskNote(note);
-    fbRef.child(taskid).set({"tasknotes": task.tasknotes});
+    fbRef.child(taskid).update({"tasknotes": task.tasknotes});
   }
 
   void deleteNote(String taskid, String index) {
