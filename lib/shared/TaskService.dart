@@ -1,19 +1,19 @@
 library dost.shared.TaskService;
 
 import 'package:angular2/angular2.dart';
-import 'package:dost/shared/Task.dart' show Task;
+import 'package:dost/shared/Task.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:firebase/firebase.dart';
 
 @Injectable()
 class TaskService {
   List<Task> tasklist = [];
-  Firebase fbRef =
-      new Firebase("https://vivid-torch-1460.firebaseio.com/").child("tasks");
+  Firebase fbRef = new Firebase("https://vivid-torch-1460.firebaseio.com/");
 
   List<Task> getTasks() {
-    fbRef.once("value").then((snapshot) => print(snapshot.val()));
-    return this.tasklist;
+    fbRef.once("value").then((snapshot) => snapshot.forEach((i) =>
+        tasklist.insert(0, new Task(snapshot.val()[i.key]["summary"], i.key))));
+    return tasklist;
   }
 
   Task getTask(String id) {
@@ -22,10 +22,7 @@ class TaskService {
 
   void addTask(String summary) {
     var newtaskref = fbRef.push();
-    newtaskref.set({
-      "summary": summary
-    });
-    print(newtaskref.key);
+    newtaskref.set({"summary": summary});
     tasklist.insert(0, new Task(summary, newtaskref.key));
   }
 
