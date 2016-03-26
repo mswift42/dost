@@ -33,6 +33,7 @@ class TaskService {
   void deleteTask(String taskid) {
     Task task = getTask(taskid);
     tasklist.remove(task);
+    fbRef.child(taskid).remove();
   }
 
   void addTaskNote(String taskid, String note) {
