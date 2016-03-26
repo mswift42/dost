@@ -11,8 +11,15 @@ class TaskService {
   Firebase fbRef = new Firebase("https://vivid-torch-1460.firebaseio.com/");
 
   List<Task> getTasks() {
-    fbRef.once("value").then((snapshot) => snapshot.forEach((i) =>
-        tasklist.insert(0, new Task(snapshot.val()[i.key]["summary"], i.key))));
+    fbRef.once("value").then((snapshot) => snapshot.forEach((i) {
+          //tasklist.insert(0, new Task(snapshot.val()[i.key]["summary"], i.key))));
+          String id = i.key;
+          Map taskval = snapshot.val()[id];
+          Task task = new Task(taskval["summary"], id)
+            ..tasknotes = taskval["tasknotes"] ?? []
+            ..scheduled = taskval["scheduled"];
+          tasklist.insert(0, task);
+        }));
     return tasklist;
   }
 
@@ -22,13 +29,14 @@ class TaskService {
 
   void addTask(String summary) {
     var newtaskref = fbRef.push();
-    newtaskref.set({"summary": summary});
+    newtaskref.set({"summary": summary, "scheduled": null,
+    "tasknotes" : null});
     tasklist.insert(0, new Task(summary, newtaskref.key));
   }
 
   void editSummary(String taskid, String newsummary) {
     tasklist.firstWhere((i) => i.id == taskid).summary = newsummary;
-    fbRef.child(taskid).set({"summary" : newsummary});
+    fbRef.child(taskid).set({"summary": newsummary});
   }
 
   void deleteTask(String taskid) {
@@ -40,6 +48,7 @@ class TaskService {
   void addTaskNote(String taskid, String note) {
     Task task = getTask(taskid);
     task.addTaskNote(note);
+    fbRef.child(taskid).set({"tasknotes": task.tasknotes});
   }
 
   void deleteNote(String taskid, String index) {
