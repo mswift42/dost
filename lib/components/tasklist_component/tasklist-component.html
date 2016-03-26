@@ -9,7 +9,7 @@
     <div class="singletask">
       <task-summary summary="{{task.summary}}"
       taskid="{{task.id}}"></task-summary>
-      <div *ngIf="task.tasknotes.length > 0">
+      <div *ngIf="task.tasknotes != null">
       <div *ngFor="#note of task.tasknotes; #i=index">
         <task-note tasknote="{{note}}" taskid="{{task.id}}"
                    index="{{i}}"></task-note>
