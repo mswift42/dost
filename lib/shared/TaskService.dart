@@ -54,6 +54,7 @@ class TaskService {
   void deleteNote(String taskid, String index) {
     int idx = int.parse(index);
     tasklist.firstWhere((i) => i.id == taskid).tasknotes.removeAt(idx);
+    fbRef.child(taskid).update({"tasknotes": getTask(taskid).tasknotes});
   }
 
   void editNote(String taskid, String index, String newnote) {
