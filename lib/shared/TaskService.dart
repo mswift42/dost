@@ -17,7 +17,7 @@ class TaskService {
           Map taskval = snapshot.val()[id];
           Task task = new Task(taskval["summary"], id)
             ..tasknotes = taskval["tasknotes"] ?? []
-            ..scheduled = taskval["scheduled"];
+            ..scheduled = DateTime.parse(taskval["scheduled"]);
           tasklist.insert(0, task);
         }));
     return tasklist;
@@ -76,6 +76,9 @@ class TaskService {
   bool dueToday(String taskid) {
     DateTime today = new DateTime.now();
     DateTime taskdue = getTask(taskid).scheduled;
+    if (taskdue == null) {
+      return false;
+    }
     DateFormat formatter = new DateFormat("yyyy-MM-dd");
     return formatter.format(today) == formatter.format(taskdue);
 
