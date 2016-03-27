@@ -72,4 +72,12 @@ class TaskService {
     tasklist.firstWhere((i) => i.id == taskid).scheduled = scheduled;
     fbRef.child(taskid).update({"scheduled": getTask(taskid).scheduled});
   }
+
+  bool dueToday(String taskid) {
+    DateTime today = new DateTime.now();
+    DateTime taskdue = getTask(taskid).scheduled;
+    DateFormat formatter = new DateFormat("yyyy-MM-dd");
+    return formatter.format(today) == formatter.format(taskdue);
+
+  }
 }
