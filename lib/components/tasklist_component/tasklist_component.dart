@@ -45,4 +45,7 @@ class TaskListComponent implements OnInit {
   void deleteTask(String id) {
     _taskService.deleteTask(id);
   }
+  bool isDueToday(String taskid) {
+    return _taskService.dueToday(taskid);
+  }
 }
