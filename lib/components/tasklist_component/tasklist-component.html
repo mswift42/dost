@@ -5,7 +5,7 @@
 </div>
 <div class="row tasklist">
   <div *ngFor="#task of tasks">
-    <div class="singletask">
+    <div [class.due]="isDueToday(task.id)" class="singletask">
       <task-summary summary="{{task.summary}}"
       taskid="{{task.id}}"></task-summary>
       <div *ngIf="task.tasknotes != null">
