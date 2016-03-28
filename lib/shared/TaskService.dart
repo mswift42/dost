@@ -12,12 +12,13 @@ class TaskService {
 
   List<Task> getTasks() {
     fbRef.once("value").then((snapshot) => snapshot.forEach((i) {
-          //tasklist.insert(0, new Task(snapshot.val()[i.key]["summary"], i.key))));
           String id = i.key;
           Map taskval = snapshot.val()[id];
           Task task = new Task(taskval["summary"], id)
             ..tasknotes = taskval["tasknotes"] ?? []
-            ..scheduled = DateTime.parse(taskval["scheduled"]);
+            ..scheduled = (taskval["scheduled"] != null)
+                ? DateTime.parse(taskval["scheduled"])
+                : null;
           tasklist.insert(0, task);
         }));
     return tasklist;
@@ -29,8 +30,7 @@ class TaskService {
 
   void addTask(String summary) {
     var newtaskref = fbRef.push();
-    newtaskref.set({"summary": summary, "scheduled": null,
-    "tasknotes" : null});
+    newtaskref.set({"summary": summary, "scheduled": null, "tasknotes": null});
     tasklist.insert(0, new Task(summary, newtaskref.key));
   }
 
@@ -60,7 +60,7 @@ class TaskService {
   void editNote(String taskid, String index, String newnote) {
     int noteidx = int.parse(index);
     tasklist.firstWhere((i) => i.id == taskid).tasknotes[noteidx] = newnote;
-    fbRef.child(taskid).update({"tasknotes":getTask(taskid).tasknotes});
+    fbRef.child(taskid).update({"tasknotes": getTask(taskid).tasknotes});
   }
 
   String formatDate(DateTime date) {
@@ -81,6 +81,5 @@ class TaskService {
     }
     DateFormat formatter = new DateFormat("yyyy-MM-dd");
     return formatter.format(today) == formatter.format(taskdue);
-
   }
 }
