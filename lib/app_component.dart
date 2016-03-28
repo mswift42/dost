@@ -15,7 +15,7 @@ import 'package:dost/components/about-component/about_component.dart';
     providers: const [ROUTER_PROVIDERS])
 @RouteConfig(const [
   const Route(
-      path: '/tasks',
+      path: '/',
       name: 'Tasklist',
       component: TaskListComponent,
       useAsDefault: true),
