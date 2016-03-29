@@ -12,6 +12,7 @@
     padding:1em;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
     margin-left:1em;
+    margin-top:1em;
 }
 
 .due {
@@ -20,8 +21,7 @@
 @media screen and (min-width:768px) {
     .singletask {
         position:relative;
-        margin-left:2em;
-        margin-right:2em;
+        margin:2em;
     }
 }
 .deleteicon {
