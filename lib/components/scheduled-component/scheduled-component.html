@@ -1,13 +1,15 @@
-<div *ngIf="scheduled != null" class="scheduled" (click)="toggleEditing()">
-  <div class="scheduledicon">
-    <i class="fa fa-clock-o"></i>
+  <div  class="scheduled" (click)="toggleEditing()">
+    <div class="scheduledicon">
+      <i class="fa fa-clock-o"></i>
+    </div>
   </div>
-</div>
-<div *ngIf="scheduled != '' && !editing" class="scheduled">
-  <div class="scheduleddate" (dblclick)="toggleEditing()">
-    <span>{{parseDate(scheduled) | date}}</span>
+  <div *ngIf="scheduled != '' && !editing" class="scheduled">
+    <div class="scheduleddate row" (dblclick)="toggleEditing()">
+      <span scheddate>{{parseDate(scheduled) | date}}</span>
+    <i class="fa fa-remove deletedate pull-right"
+             (click)="deleteDate()"></i>
+    </div>
   </div>
-</div>
 <div *ngIf="editing" class="scheduled editdate">
   <div class="dateinput">
     <input type="date" [(ngModel)]="scheduled"

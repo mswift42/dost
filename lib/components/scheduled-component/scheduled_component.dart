@@ -19,7 +19,7 @@ class ScheduledComponent {
     editing = !editing;
   }
   DateTime parseDate(String datestring) {
-    return DateTime.parse(datestring);
+    return DateTime.parse(datestring) ?? null ;
   }
 
   bool validDateString(String date) {
@@ -41,5 +41,8 @@ class ScheduledComponent {
       dateinvalid = false;
       toggleEditing();
     }
+  }
+  void deleteDate() {
+    _taskService.editScheduled(taskid, null);
   }
 }
