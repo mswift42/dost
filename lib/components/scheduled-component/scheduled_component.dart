@@ -38,7 +38,7 @@ class ScheduledComponent {
       dateinvalid = true;
     } else {
       _taskService.editScheduled(
-          taskid, DateTime.parse(dateval));
+          taskid, DateTime.parse(dateval).toLocal());
       dateinvalid = false;
       toggleEditing();
     }

@@ -17,7 +17,7 @@ class TaskService {
           Task task = new Task(taskval["summary"], id)
             ..tasknotes = taskval["tasknotes"] ?? []
             ..scheduled = (taskval["scheduled"] != null)
-                ? DateTime.parse(taskval["scheduled"])
+                ? DateTime.parse(taskval["scheduled"]).toLocal()
                 : null;
           tasklist.insert(0, task);
         }));
