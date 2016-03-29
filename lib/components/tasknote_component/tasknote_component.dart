@@ -22,7 +22,11 @@ class TaskNoteComponent {
     editing = !editing;
   }
   void editNote(String note) {
-    _taskService.editNote(taskid, index, tasknote);
+    if (note?.length > 0) {
+      _taskService.editNote(taskid, index, tasknote);
+    } else {
+      toggleEditing();
+    }
   }
   void deleteNote() {
     _taskService.deleteNote(taskid, index);
