@@ -1,6 +1,5 @@
 import 'package:angular2/angular2.dart' show Component, OnInit, Input;
 import 'package:dost/shared/TaskService.dart' show TaskService;
-import 'package:intl/intl.dart' show DateFormat;
 
 @Component(
     selector: 'scheduled',
