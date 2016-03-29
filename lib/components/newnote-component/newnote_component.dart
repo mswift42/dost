@@ -19,7 +19,9 @@ class NewNoteComponent {
   }
 
   void addNote(event) {
-    _taskService.addTaskNote(taskid, event.target.value);
+    if (event.target.value?.length > 0) {
+      _taskService.addTaskNote(taskid, event.target.value);
+    }
     toggleAddingNote();
   }
 }
