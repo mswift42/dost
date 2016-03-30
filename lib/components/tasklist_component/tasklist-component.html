@@ -1,23 +1,25 @@
-<div class="newtask">
-  <input #tsummary class="form-control" placeholder="Enter new task" type="text"
-         (keyup.enter)="submitNewTask(tsummary.value); tsummary.value='' "
-         (blur)="submitNewTask(tsummary.value); tsummary.value='' "/>
-</div>
-<div class="row tasklist">
-  <div *ngFor="#task of tasks">
-    <div [class.due]="isDueToday(task.id)" class="singletask">
-      <task-summary summary="{{task.summary}}"
-      taskid="{{task.id}}"></task-summary>
-      <div *ngIf="task.tasknotes != null">
-      <div *ngFor="#note of task.tasknotes; #i=index">
-        <task-note tasknote="{{note}}" taskid="{{task.id}}"
-                   index="{{i}}"></task-note>
-      </div>
+<div class="container">
+  <div class="newtask">
+    <input #tsummary class="form-control" placeholder="Enter new task" type="text"
+           (keyup.enter)="submitNewTask(tsummary.value); tsummary.value='' "
+           (blur)="submitNewTask(tsummary.value); tsummary.value='' "/>
+  </div>
+  <div class="row tasklist">
+    <div *ngFor="#task of tasks">
+      <div [class.due]="isDueToday(task.id)" class="singletask">
+        <task-summary summary="{{task.summary}}"
+                      taskid="{{task.id}}"></task-summary>
+        <div *ngIf="task.tasknotes != null">
+          <div *ngFor="#note of task.tasknotes; #i=index">
+            <task-note tasknote="{{note}}" taskid="{{task.id}}"
+                       index="{{i}}"></task-note>
+          </div>
         </div>
-    <new-note taskid="{{task.id}}"></new-note>
-    <scheduled scheduled="{{task.scheduled}}" taskid="{{task.id}}"></scheduled>
-      <div class="deleteicon">
-        <i class="fa fa-trash" (click)="deleteTask(task.id)"></i>
+        <new-note taskid="{{task.id}}"></new-note>
+        <scheduled scheduled="{{task.scheduled}}" taskid="{{task.id}}"></scheduled>
+        <div class="deleteicon">
+          <i class="fa fa-trash" (click)="deleteTask(task.id)"></i>
+        </div>
       </div>
     </div>
   </div>
