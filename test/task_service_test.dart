@@ -12,8 +12,8 @@ void main() {
   });
   test('Tasklist tasks can be deleted.', () {
     var ts = new TaskService();
-    var t1 = new Task("some of many", 1);
-    ts.addTask(t1);
+    var t1 = new Task("some of many", "1");
+    ts.addTask(t1.summary);
     expect(ts.getTasks().length, 4);
     ts.deleteTask(t1.id);
     expect(ts.getTasks().length, 3);
